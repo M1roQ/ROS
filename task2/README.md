@@ -99,18 +99,17 @@ source ~/ros2_ws/install/local_setup.bash  # источник overlay
 
 **Создание собственного пакета ROS 2 на Python и запуск**
 ```
-# Создаём новый пакет valerie (ваше название) с типом сборки ament_python, указываем лицензию и имя узла my_node (ваше название).
+# Создаём новый пакет valerie (ваше название) с типом сборки ament_python, указываем лицензию 
+# и имя узла my_node (ваше название).
 ros2 pkg create --build-type ament_python --license Apache-2.0 --node-name my_node valerie
 
-
 cd .. # вернуться в /ros2_ws
-
 
 colcon build
 # colcon build --packages-select valerie - пересобрать только valerie пакет
 ```
 
-В новом терминале активируем workspace и запускаем ваш узел my_node из пакета valerie.
+В новом терминале активируем workspace и запускаем узел my_node из пакета valerie.
 
 ```
 source install/local_setup.bash
