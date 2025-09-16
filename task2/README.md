@@ -20,3 +20,5 @@
     ```
     ros2 pkg executables action_tutorials_py | awk '{print $2}' > ~/workbench/ex02/list_exec_action_tutorials.txt
     ```
+    - awk — это утилита для обработки текстовых данных построчно, разбивая каждую строку на поля
+    - print $2 - выводит только значение этого 2-го поля.
