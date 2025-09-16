@@ -19,6 +19,7 @@ RUN echo "source /opt/ros/jazzy/setup.bash" >> /home/$USERNAME/.bashrc && \
     echo "export LIBGL_ALWAYS_SOFTWARE=1" >> /home/$USERNAME/.bashrc && \
     echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> /home/$USERNAME/.bashrc && \
     echo "export _colcon_cd_root=/opt/ros/jazzy/" >> /home/$USERNAME/.bashrc
+    echo "source /home/$USERNAME/ros2_ws/install/local_setup.bash" >> /home/$USERNAME/.bashrc
 
 RUN chown -R $USER_UID:$USER_GID /home/$USERNAME
 
