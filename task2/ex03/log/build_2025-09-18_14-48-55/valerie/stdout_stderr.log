@@ -1,0 +1,36 @@
+running egg_info
+creating ../../../build/valerie/valerie.egg-info
+writing ../../../build/valerie/valerie.egg-info/PKG-INFO
+writing dependency_links to ../../../build/valerie/valerie.egg-info/dependency_links.txt
+writing entry points to ../../../build/valerie/valerie.egg-info/entry_points.txt
+writing requirements to ../../../build/valerie/valerie.egg-info/requires.txt
+writing top-level names to ../../../build/valerie/valerie.egg-info/top_level.txt
+writing manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+reading manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/bval4/workbench/ex03/build/valerie/build
+creating /home/bval4/workbench/ex03/build/valerie/build/lib
+creating /home/bval4/workbench/ex03/build/valerie/build/lib/valerie
+copying valerie/my_node.py -> /home/bval4/workbench/ex03/build/valerie/build/lib/valerie
+copying valerie/__init__.py -> /home/bval4/workbench/ex03/build/valerie/build/lib/valerie
+running install
+running install_lib
+creating /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie
+copying /home/bval4/workbench/ex03/build/valerie/build/lib/valerie/my_node.py -> /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie
+copying /home/bval4/workbench/ex03/build/valerie/build/lib/valerie/__init__.py -> /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie
+byte-compiling /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie/my_node.py to my_node.cpython-312.pyc
+byte-compiling /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie/__init__.py to __init__.cpython-312.pyc
+running install_data
+creating /home/bval4/workbench/ex03/install/valerie/share/ament_index
+creating /home/bval4/workbench/ex03/install/valerie/share/ament_index/resource_index
+creating /home/bval4/workbench/ex03/install/valerie/share/ament_index/resource_index/packages
+copying resource/valerie -> /home/bval4/workbench/ex03/install/valerie/share/ament_index/resource_index/packages
+copying package.xml -> /home/bval4/workbench/ex03/install/valerie/share/valerie
+running install_egg_info
+Copying ../../../build/valerie/valerie.egg-info to /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie-0.0.0-py3.12.egg-info
+running install_scripts
+Installing my_node script to /home/bval4/workbench/ex03/install/valerie/lib/valerie
+writing list of installed files to '/home/bval4/workbench/ex03/build/valerie/install.log'

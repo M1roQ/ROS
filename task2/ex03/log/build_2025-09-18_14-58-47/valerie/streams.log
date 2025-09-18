@@ -1,0 +1,22 @@
+[0.452s] Invoking command in '/home/bval4/workbench/ex03/ros2-ws/src/valerie': PYTHONPATH=/home/bval4/workbench/ex03/build/valerie/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/valerie build --build-base /home/bval4/workbench/ex03/build/valerie/build install --record /home/bval4/workbench/ex03/build/valerie/install.log --single-version-externally-managed install_data
+[0.607s] running egg_info
+[0.615s] writing ../../../build/valerie/valerie.egg-info/PKG-INFO
+[0.616s] writing dependency_links to ../../../build/valerie/valerie.egg-info/dependency_links.txt
+[0.616s] writing entry points to ../../../build/valerie/valerie.egg-info/entry_points.txt
+[0.616s] writing requirements to ../../../build/valerie/valerie.egg-info/requires.txt
+[0.616s] writing top-level names to ../../../build/valerie/valerie.egg-info/top_level.txt
+[0.634s] reading manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+[0.634s] adding license file 'LICENSE'
+[0.634s] writing manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+[0.634s] running build
+[0.634s] running build_py
+[0.634s] running install
+[0.638s] running install_lib
+[0.647s] running install_data
+[0.647s] running install_egg_info
+[0.657s] removing '/home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie-0.0.0-py3.12.egg-info' (and everything under it)
+[0.657s] Copying ../../../build/valerie/valerie.egg-info to /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie-0.0.0-py3.12.egg-info
+[0.657s] running install_scripts
+[0.723s] Installing my_node script to /home/bval4/workbench/ex03/install/valerie/lib/valerie
+[0.723s] writing list of installed files to '/home/bval4/workbench/ex03/build/valerie/install.log'
+[0.740s] Invoked command in '/home/bval4/workbench/ex03/ros2-ws/src/valerie' returned '0': PYTHONPATH=/home/bval4/workbench/ex03/build/valerie/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/valerie build --build-base /home/bval4/workbench/ex03/build/valerie/build install --record /home/bval4/workbench/ex03/build/valerie/install.log --single-version-externally-managed install_data
