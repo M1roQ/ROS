@@ -162,3 +162,148 @@ ros2 node list
 ```
 ros2 node info valerie_turtle > ex05/rosnode_info.txt
 ```
+
+### ex06
+
+```
+ros2 run turtlesim turtlesim_node
+ros2 run turtlesim turtle_teleop_key
+
+ros2 run rqt_graph rqt_graph
+```
+- В графе rqt_graph отображаются узлы /turtlesim и /teleop_turtle, а также топик /turtle1/cmd_vel, через который они общаются.
+
+- Узел /teleop_turtle публикует данные (нажатия клавиш для управления черепашкой) в топик /turtle1/cmd_vel.
+
+- Узел /turtlesim подписан на этот топик и получает данные для перемещения черепашки.
+
+```
+ros2 topic list
+```
+Результат:
+```
+/parameter_events
+/rosout
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+```
+
+```
+ros2 topic list -t
+```
+Результат:
+```
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/rosout [rcl_interfaces/msg/Log]
+/turtle1/cmd_vel [geometry_msgs/msg/Twist]
+/turtle1/color_sensor [turtlesim/msg/Color]
+/turtle1/pose [turtlesim/msg/Pose]
+```
+
+Если запустить (в отдельном терминале)
+```
+ros2 topic echo /turtle1/cmd_vel
+```
+То при управлении черепашкой увидим, какие данные отправляются в топик /turtle1/cmd_vel.
+
+```
+ros2 topic info /turtle1/cmd_vel
+```
+Показывает подробную информацию о топике /turtle1/cmd_vel.
+- **Тип сообщений (Type)**:
+Например, `geometry_msgs/msg/Twist` — это тип сообщения, передаваемого по топику. Он описывает структуру данных, которую должны публиковать и подписываться ноды.
+
+- **Количество издателей (Publisher count)**:
+Сколько узлов (нод) в данный момент публикуют сообщения в этот топик.
+
+- **Количество подписчиков (Subscription count)**:
+Сколько нод в данный момент подписаны на этот топик и получают оттуда данные.
+
+Результат:
+```
+Type: geometry_msgs/msg/Twist
+Publisher count: 1
+Subscription count: 1
+```
+
+Теперь мы можем запустить `ros2 interface show <msg_type>` для этого типа, чтобы узнать его подробности. В частности, какую структуру данных ожидает сообщение.
+```
+# This expresses velocity in free space broken into its linear and angular parts.
+
+Vector3  linear
+        float64 x
+        float64 y
+        float64 z
+Vector3  angular
+        float64 x
+        float64 y
+        float64 z
+```
+
+`ros2 topic pub <topic_name> <msg_type> '<args>'` - публикует данные в топик. Аргумент '<args>' - это фактические данные, которые вы передадите в раздел в структуре, которую вы только что обнаружили в предыдущем разделе.
+
+```
+ros2 topic pub /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+```
+
+Параметр `--once` - выполнить один раз.
+
+```
+ros2 topic pub --once -w 2 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+```
+- -w 2 - количество подписчиков (необязательный параметр)
+
+```
+# publishing turtle pose
+ros2 topic pub /pose geometry_msgs/msg/PoseStamped '{header: "auto", pose: {position: {x: 1.0, y: 2.0, z: 3.0}}}'
+
+# to see topic publications frequensy
+ros2 topic hz /turtle1/pose
+
+# to see topic bandwidth
+ros2 topic bw /turtle1/pose
+
+# to find what topics using this type of messages
+ros2 topic find geometry_msgs/msg/Twist
+```
+
+**Рисование восьмерки:**
+Время движения установлено 1 секунда (параметр --once — одна публикация).
+Линейная скорость соответствует длине окружности круга, который нужно обойти за 1 секунду:
+
+$V=S/t = S \text{, \\\ где } S = 2 \pi r$
+
+Угловая скорость соответствует полному повороту за 1 секунду:
+
+$\omega = \varphi/t = \varphi = 2 \pi$
+
+Где:  
+- $r$ — радиус круга  
+- $\varphi$ — угол поворота (радианы) для полного круга (360°)  
+- $V$ — линейная скорость (м/с)  
+- $\omega$ — угловая скорость (радиан/с)
+
+Для первого круга с радиусом примерно 1:
+
+$ S=2 \pi \times 1 = 6.2831853$
+
+$V = 6.2831853$
+
+$ \omega = 6.2831853 $
+
+Для круга с радиусом 2
+
+$S = 2 \pi \times 2 = 12.5663706144$
+
+$V = 12.5663706144$
+
+$\omega = 6.28318530718$
+
+$\omega$ берем с минусом, чтобы черепаха делала круг ниже первого.
+
+```
+ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 6.0}, angular: { z: 6.0}}"
+
+ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 12.0}, angular: { z: -6.0}}"
+```
