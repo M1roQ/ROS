@@ -129,8 +129,36 @@ ros2 run valerie my_node
 Эти данные должны соответствовать друг другу для корректной сборки и документации.
 
 ### ex04
+
 Из папки ex04 выполнить
 ```
 colcon build --packages-select valerie > ../ex04/colcon_build.txt 2>&1
 ```
 - 2>&1 — это перенаправление потока ошибок (stderr, дескриптор 2) в стандартный вывод (stdout, дескриптор 1). Это означает, что все сообщения об ошибках также попадут в тот же файл colcon_build.txt, а не будут показаны отдельно или в терминале.
+
+### ex05
+В отдельных терминалах:
+```
+ros2 run turtlesim turtle_teleop_key
+``` 
+и
+```
+ros2 node list
+```
+
+Резульат:
+> /teleop_turtle
+
+Тоже в разных терминалах
+```
+ros2 run turtlesim turtlesim_node --ros-args --remap __node:=valerie_turtle
+
+ros2 node list
+```
+Результат:
+> /valerie_turtle
+
+Получение информации о ноде
+```
+ros2 node info valerie_turtle > ex05/rosnode_info.txt
+```
