@@ -1,2 +1,0 @@
-[console_scripts]
-my_node = valerie.my_node:main
