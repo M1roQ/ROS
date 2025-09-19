@@ -307,3 +307,99 @@ ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 6.0
 
 ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 12.0}, angular: { z: -6.0}}"
 ```
+
+### ex07
+
+После запуска turtlesim_node и turtle_teleop_key
+
+**Services:**
+```
+ros2 service list
+/clear
+/kill
+/reset
+/spawn
+/teleop_turtle/describe_parameters
+/teleop_turtle/get_parameter_types
+/teleop_turtle/get_parameters
+/teleop_turtle/get_type_description
+/teleop_turtle/list_parameters
+/teleop_turtle/set_parameters
+/teleop_turtle/set_parameters_atomically
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtlesim/describe_parameters
+/turtlesim/get_parameter_types
+/turtlesim/get_parameters
+/turtlesim/get_type_description
+/turtlesim/list_parameters
+/turtlesim/set_parameters
+/turtlesim/set_parameters_atomically
+```
+
+```
+# Узнать тип сервиса
+ros2 service type <service_name>
+
+
+# Узнать тип всех активных сервисов:
+ros2 service list -t
+
+# Найти сервис по типу
+ros2 service find <type_name>
+
+# Узнуть структуру. Символ --- отделяет структуру запроса (вверху) от структуры ответа (внизу). 
+ros2 interface show <type_name>
+
+# Вызов сервиса
+ros2 service call <service_name> <service_type> <arguments>
+
+# Спавн черепашки
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+
+# Удалить черепаху
+ros2 service call /kill turtlesim/srv/Kill "{name: 'turtle2'}"
+```
+
+**Parametrs:**
+```
+# Посмотреть параметры нод
+ros2 param list
+
+# Отобразить тип и текущее значение параметра:
+ros2 param get <node_name> <parameter_name>
+
+# Задать значение параметра
+ros2 param set <node_name> <parameter_name> <value>
+
+# Просмотреть все текущие значения параметров ноды:
+ros2 param dump <node_name>
+
+# Загрузить параметры из файла
+ros2 param load <node_name> <parameter_file>
+
+
+```
+
+Заспавнить 4 черепахи
+```
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 2.0, y: 2.0, theta: 0.0, name: 'Leonardo'}"
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 7.0, y: 2.0, theta: 0.0, name: 'Raphael'}"
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 2.0, y: 7.0, theta: 0.0, name: 'Donatello'}"
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 7.0, y: 7.0, theta: 0.0, name: 'Michelangelo'}"
+```
+
+Изменить параметр фона
+```
+ros2 param set /turtlesim background_g 124
+```
+
+Список серверов
+```
+ros2 service list > ex07/rosservice_list.txt
+```
+
+Параметры сервисов:
+```
+
