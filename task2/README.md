@@ -404,3 +404,27 @@ ros2 service list > ex07/rosservice_list.txt
 ```
 ./all_parameters
 ```
+
+### ex08
+
+В разных терминалах:
+```
+# Запуск графического окна rqt_console для просмотра логов ROS 2
+ros2 run rqt_console rqt_console
+
+# Запуск симулятора черепахи с уровнем логирования WARN
+ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
+
+# Запуск launch файла turtlesim_mimic_launch.xml
+ros2 launch turtlesim_mimic_launch.xml
+
+# Публикация сообщений в топик управления черепахой
+
+ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+```
+
+- Публикует команду скорости (Twist) в топик управления черепахой /turtlesim1/turtle1/cmd_vel.
+
+- -r 1 — публикует сообщение с частотой 1 раз в секунду.
+
+- linear.x = 2.0 — движение вперёд с скоростью 2.0, остальные значения — вращение и движение по другим осям.
