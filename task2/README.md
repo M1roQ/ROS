@@ -402,4 +402,5 @@ ros2 service list > ex07/rosservice_list.txt
 
 Параметры сервисов:
 ```
-
+./all_parameters
+```
