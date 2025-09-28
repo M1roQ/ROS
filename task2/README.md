@@ -428,3 +428,50 @@ ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear
 - -r 1 — публикует сообщение с частотой 1 раз в секунду.
 
 - linear.x = 2.0 — движение вперёд с скоростью 2.0, остальные значения — вращение и движение по другим осям.
+
+
+### ex10
+Запуск симулятора turtlesim
+
+```
+source ~/workbench/ex10/ros2-ws/install/setup.bash
+ros2 run turtlesim turtlesim_node
+```
+
+Запуск узла обработки текстовых команд
+
+```
+source ~/workbench/ex10/ros2-ws/install/setup.bash
+ros2 run text_to_cmd_vel_pkg text_to_cmd_vel
+```
+
+Публикация текстовых команд в топик /cmd_text
+
+```
+ros2 topic pub /cmd_text std_msgs/msg/String "data: 'move_forward'" -r 1
+```
+
+```
+ros2 topic pub /cmd_text std_msgs/msg/String "data: 'turn_left'" -r 1
+```
+
+```
+ros2 topic pub /cmd_text std_msgs/msg/String "data: 'turn_right'" -r 1
+```
+
+```
+ros2 topic pub /cmd_text std_msgs/msg/String "data: 'move_backward'" -r 1
+```
+
+```
+ros2 topic pub /cmd_text std_msgs/msg/String "data: 'stop'" -r 1
+```
+
+- Опция -r 1 задаёт частоту отправки сообщений (можно менять).
+
+- Чтобы отправить сообщение один раз, используйте опцию -1 вместо -r.
+
+Чтобы увидеть публикуемые команды, можно открыть монитор топика:
+```
+ros2 topic echo /cmd_text
+```
