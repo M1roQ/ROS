@@ -93,3 +93,20 @@ ros2 topic echo /turtle1/pose > pose_speed_x2.yaml
 **Вывод и структура**
 
 - По завершении, файлы `turtle_cmd_vel.mcap`, `pose_speed_x1.yaml`, `pose_speed_x2.yaml` нужно положить в папку `ex02`.
+
+### ex03
+
+Запустить черепашку и управление
+
+```
+ros2 doctor
+ros2 doctor --report | grep -A 50 "PLATFORM INFORMATION\|RMW MIDDLEWARE\|ROS 2 INFORMATION\|TOPIC LIST" > doctor.txt
+```
+
+- Опция --report выводит подробный отчёт по установленным пакетам, версиям, конфигурации платформы, и другим важным аспектам вашей ROS 2 установки.
+
+- Команда grep ищет в выводе текстовые шаблоны по строкам.
+
+- Опция -A 50 означает «вывести найденную строку и 50 строк после неё» — захватывая блок с интересующей информацией.
+
+- Паттерн "PLATFORM INFORMATION\|RMW MIDDLEWARE\|ROS 2 INFORMATION\|TOPIC LIST" ищет строки, содержащие любой из этих ключевых разделов отчёта (информация о платформе, о middleware, о ROS 2 и списке топиков).
