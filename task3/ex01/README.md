@@ -143,3 +143,51 @@ ros2 run move_to_goal move_to_goal 5.0 5.0 0.0
 
 - 5.0 5.0 0.0 — параметры, передаваемые ноде, целевые координаты x=5.0, y=5.0 и угол поворота theta=0.0.
 
+### ex05
+
+Создание пакета
+
+```
+mkdir -p ros2_ws/src
+cd ros2_ws/src
+ros2 pkg create --build-type ament_python action_cleaning_robot
+colcon build --packages-select action_cleaning_robot
+source install/setup.bash
+```
+
+Проверка
+
+```
+ros2 interface show action_cleaning_robot/action/CleaningTask
+```
+
+Вывод:
+```
+# goal
+string task_type
+float64 area_size
+float64 target_x
+float64 target_y
+---
+# result
+bool success
+int32 cleaned_points
+float64 total_distance
+---
+# feedback
+int32 progress_percent
+int32 current_cleaned_points
+float64 current_x
+float64 current_y
+```
+
+Запуск:
+```
+ros2 run turtlesim turtlesim_node
+ros2 run action_cleaning_robot cleaning_action_server
+ros2 run action_cleaning_robot cleaning_action_client
+```
+Запускать в отдельных терминалах из ros2_ws. Перед запуском выполнить
+```
+source install/setup.bash
+```
