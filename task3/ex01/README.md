@@ -110,3 +110,36 @@ ros2 doctor --report | grep -A 50 "PLATFORM INFORMATION\|RMW MIDDLEWARE\|ROS 2 I
 - Опция -A 50 означает «вывести найденную строку и 50 строк после неё» — захватывая блок с интересующей информацией.
 
 - Паттерн "PLATFORM INFORMATION\|RMW MIDDLEWARE\|ROS 2 INFORMATION\|TOPIC LIST" ищет строки, содержащие любой из этих ключевых разделов отчёта (информация о платформе, о middleware, о ROS 2 и списке топиков).
+
+### ex04
+
+Создание пакета
+
+```
+mkdir -p ros2_ws/src
+cd ros2_ws/src
+ros2 pkg create --build-type ament_python move_to_goal --dependencies rclpy geometry_msgs turtlesim
+
+cd ..
+colcon build --packages-select move_to_goal
+source install/setup.bash
+```
+
+Запуск черепашки
+
+```
+ros2 run turtlesim turtlesim_node
+```
+
+Из ros2_ws!
+
+```
+ros2 run move_to_goal move_to_goal 5.0 5.0 0.0
+```
+
+- Первый move_to_goal — название ROS 2 пакета, в котором содержится узел.
+
+- Второй move_to_goal — имя исполняемого файла (узла), который запускается из этого пакета.
+
+- 5.0 5.0 0.0 — параметры, передаваемые ноде, целевые координаты x=5.0, y=5.0 и угол поворота theta=0.0.
+
