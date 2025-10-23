@@ -26,3 +26,14 @@ ros2 run tf2_ros tf2_echo turtle1 turtle2 > transform.txt
 Данные из строки `Translation: [-0.000, 0.000, 0.000]` и `Rotation: in RPY (degree) [0.000, 0.000, -16.133]`.
 
 #### ex02
+
+xhost +local:docker
+
+ros2 pkg create --build-type ament_python two_turtles_one_carrot
+
+colcon build --packages-select two_turtles_one_carrot
+source install/setup.bash
+
+ros2 launch two_turtles_one_carrot carrot.launch.py radius:=5.0
+rviz2
+
