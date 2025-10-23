@@ -43,7 +43,9 @@ source install/setup.bash
 ```
 
 Запуск 
+```
 ros2 launch two_turtles_one_carrot carrot.launch.py radius:=5.0
+```
 
 - `radius` - радиус для морковки
 - `target_frame` - цель, опционально
@@ -54,4 +56,24 @@ rviz2
 ```
 Левый нижний угол -> нажать "Add" и в списке выбрать tf. Для сохранения файла перейти в File (левый верхний угол) -> "Save as" и сохранить в нужную папку с именем `carrot.rviz`.
 
+#### ex2b
 
+Создание пакета
+```
+ros2 pkg create --build-type ament_python turtle_multi_target
+```
+
+Сборка и обновление пакета
+```
+colcon build --packages-select turtle_multi_target
+source install/setup.bash
+```
+
+Запуск 
+```
+ros2 launch two_turtles_one_carrot carrot.launch.py radius:=5.0
+ros2 run turtle_multi_target target_switcher --ros-args -p switch_threshold:=1.5
+ros2 run turtle_multi_target turtle_controller
+```
+
+`n` + `enter` - смена цели
