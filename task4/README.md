@@ -77,3 +77,23 @@ ros2 run turtle_multi_target turtle_controller
 ```
 
 `n` + `enter` - смена цели
+
+
+#### ex03
+
+Создание пакета
+```
+ros2 pkg create --build-type ament_python time_race
+```
+
+Сборка и обновление пакета
+```
+colcon build --packages-select time_race
+source install/setup.bash
+```
+
+Запуск
+```
+ros2 launch time_race race.launch.py delay:=5.0
+ros2 run turtlesim turtle_teleop_key
+```
