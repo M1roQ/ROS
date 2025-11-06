@@ -2,6 +2,12 @@
 
 ### ex01
 
+Создать папку `ros2_ws/src`.  
+Создать каталог проекта, имя робота sam_bot  
+```
+ros2 pkg create --build-type ament_cmake sam_bot_description
+```
+
 Установка необходимых пакетов:  
 ```
 cd ~/workbench/ex01/ros2_ws/src
@@ -9,13 +15,6 @@ git clone https://github.com/ros/joint_state_publisher.git
 cd ~/workbench/ex01/ros2_ws/
 colcon build --symlink-install --packages-select joint_state_publisher joint_state_publisher_gui sam_bot_description
 source install/setup.bash
-```
-
-Создать папку `ros2_ws/src`.
-
-Создать каталог проекта, имя робота sam_bot  
-```
-ros2 pkg create --build-type ament_cmake sam_bot_description
 ```
 
 В директории `ex01/ros2_ws/src/sam_bot_description/src` создать `/description/sam_bot_description.urdf`. Задать описание. Создать `sam_bot_description/launch/robot_display.launch.py`.
