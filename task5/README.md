@@ -28,7 +28,36 @@ source install/setup.bash
 <exec_depend>xacro</exec_depend>
 ```
 
+Дописать в `CMakeLists.txt`
+```
+install(
+  DIRECTORY src launch rviz
+  DESTINATION share/${PROJECT_NAME}
+)
+```
+
+
 Внутри папки `sam_bot_description` создать папку `rviz` и файл конфигурации RViz с именем `config.rviz`.
+
+```
+colcon build --packages-select sam_bot_description
+source install/setup.bash
+ros2 launch sam_bot_description robot_display.launch.py
+```
+
+### ex02
+
+Начало аналогично 1 заданию
+
+Сздать sam_bot_description.urdf.xacro
+
+Дописать в `CMakeLists.txt`
+```
+install(DIRECTORY description
+  DESTINATION share/${PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.urdf" PATTERN "*.xacro"
+)
+```
 
 ```
 colcon build --packages-select sam_bot_description
