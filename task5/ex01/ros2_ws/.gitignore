@@ -1,0 +1,6 @@
+build/
+install/
+log/
+common_interfaces/
+geometry2/
+joint_state_publisher/
