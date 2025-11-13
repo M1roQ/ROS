@@ -64,3 +64,122 @@ colcon build --packages-select sam_bot_description
 source install/setup.bash
 ros2 launch sam_bot_description robot_display.launch.py
 ```
+
+### ex03
+
+```
+mkdir -p ros2_ws/src
+cd ros2_ws
+```
+
+```ros2 pkg create --build-type ament_cmake robot_description
+ros2 pkg create --build-type ament_cmake robot_bringup
+ros2 pkg create --build-type ament_cmake robot_app```
+
+```colcon build --symlink-install
+source install/setup.bash```
+
+```sudo apt update
+sudo apt install ros-jazzy-teleop-twist-keyboard```
+
+```sudo apt update
+sudo apt install ros-jazzy-rqt-robot-steering```
+
+```ros2 launch robot_bringup diff_drive.launch.py
+ros2 run rqt_robot_steering rqt_robot_steering
+ros2 run teleop_twist_keyboard teleop_twist_keyboard```
+
+Активно нажимайте клавиши для управления: i, j, k, l или w, a, s, d в терминале с teleop_twist_keyboard.
+
+Управление через команду:  
+
+```
+ros2 topic pub /robot/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5}, angular: {z: 0.0}}"
+```
+
+### ex04
+
+```
+ros2 pkg create --build-type ament_python circle_movement
+```
+
+Создать:  
+- circle_movement/circle_movement/circle_movement.py
+- circle_movement/launch/circle_movement.launch.py
+
+Дописать в setup.py
+```
+('share/' + package_name + '/launch', ['launch/circle_movement.launch.py']),
+```
+и
+```
+entry_points={
+        'console_scripts': [
+            'circle_movement = circle_movement.circle_movement:main',
+        ],
+    },
+```
+
+Пересобрать пакет
+```
+colcon build --packages-select circle_movement
+source install/setup.bash
+```
+
+Открыть терминал с 3 заданием
+```
+cd ex03/ros2_ws
+source install/setup.bash
+ros2 launch robot_bringup diff_drive.launch.py
+```
+
+В отдельном терминале с заданием 4
+```
+ros2 launch circle_movement circle_movement.launch.py
+```
+
+Сообщения публикуются в 
+```
+ros2 topic echo /robot/cmd_vel
+```
+
+### ex04
+
+Создать пакет
+```
+ros2 pkg create --build-type ament_python circle_movement
+```
+
+Создать файл circle_movement/circle_movement/circle_movement.py  
+Создать circle_movement/launch/circle_movement.launch.py  
+
+В файле setup.py:  
+```
+entry_points={
+    'console_scripts': [
+        'circle_movement = circle_movement.circle_movement:main',
+    ],
+},
+```
+('share/' + package_name + '/launch', 
+            ['launch/circle_movement.launch.py']),
+```
+
+Собрать пакет
+```
+colcon build --packages-select circle_movement
+```
+
+Запуск:  
+В отдельном терминале запустить лаунч 3 задачи
+```
+cd ex03/ros2_ws
+source install/setup.bash
+ros2 launch robot_bringup diff_drive.launch.py
+```
+
+В терминале для 4 задачи
+```
+source install/setup.bash
+ros2 launch circle_movement circle_movement.launch.py
+```
