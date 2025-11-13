@@ -1,0 +1,38 @@
+[0.518s] Invoking command in '/home/bval4/workbench/ex03/ros2-ws/src/valerie': PYTHONPATH=/home/bval4/workbench/ex03/build/valerie/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/valerie build --build-base /home/bval4/workbench/ex03/build/valerie/build install --record /home/bval4/workbench/ex03/build/valerie/install.log --single-version-externally-managed install_data
+[0.670s] running egg_info
+[0.671s] creating ../../../build/valerie/valerie.egg-info
+[0.679s] writing ../../../build/valerie/valerie.egg-info/PKG-INFO
+[0.679s] writing dependency_links to ../../../build/valerie/valerie.egg-info/dependency_links.txt
+[0.679s] writing entry points to ../../../build/valerie/valerie.egg-info/entry_points.txt
+[0.679s] writing requirements to ../../../build/valerie/valerie.egg-info/requires.txt
+[0.679s] writing top-level names to ../../../build/valerie/valerie.egg-info/top_level.txt
+[0.679s] writing manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+[0.697s] reading manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+[0.697s] adding license file 'LICENSE'
+[0.697s] writing manifest file '../../../build/valerie/valerie.egg-info/SOURCES.txt'
+[0.697s] running build
+[0.697s] running build_py
+[0.697s] creating /home/bval4/workbench/ex03/build/valerie/build
+[0.697s] creating /home/bval4/workbench/ex03/build/valerie/build/lib
+[0.697s] creating /home/bval4/workbench/ex03/build/valerie/build/lib/valerie
+[0.697s] copying valerie/my_node.py -> /home/bval4/workbench/ex03/build/valerie/build/lib/valerie
+[0.699s] copying valerie/__init__.py -> /home/bval4/workbench/ex03/build/valerie/build/lib/valerie
+[0.699s] running install
+[0.703s] running install_lib
+[0.713s] creating /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie
+[0.713s] copying /home/bval4/workbench/ex03/build/valerie/build/lib/valerie/my_node.py -> /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie
+[0.713s] copying /home/bval4/workbench/ex03/build/valerie/build/lib/valerie/__init__.py -> /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie
+[0.713s] byte-compiling /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie/my_node.py to my_node.cpython-312.pyc
+[0.714s] byte-compiling /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie/__init__.py to __init__.cpython-312.pyc
+[0.714s] running install_data
+[0.714s] creating /home/bval4/workbench/ex03/install/valerie/share/ament_index
+[0.714s] creating /home/bval4/workbench/ex03/install/valerie/share/ament_index/resource_index
+[0.714s] creating /home/bval4/workbench/ex03/install/valerie/share/ament_index/resource_index/packages
+[0.714s] copying resource/valerie -> /home/bval4/workbench/ex03/install/valerie/share/ament_index/resource_index/packages
+[0.714s] copying package.xml -> /home/bval4/workbench/ex03/install/valerie/share/valerie
+[0.714s] running install_egg_info
+[0.724s] Copying ../../../build/valerie/valerie.egg-info to /home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages/valerie-0.0.0-py3.12.egg-info
+[0.725s] running install_scripts
+[0.793s] Installing my_node script to /home/bval4/workbench/ex03/install/valerie/lib/valerie
+[0.793s] writing list of installed files to '/home/bval4/workbench/ex03/build/valerie/install.log'
+[0.813s] Invoked command in '/home/bval4/workbench/ex03/ros2-ws/src/valerie' returned '0': PYTHONPATH=/home/bval4/workbench/ex03/build/valerie/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/bval4/workbench/ex03/install/valerie/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/valerie build --build-base /home/bval4/workbench/ex03/build/valerie/build install --record /home/bval4/workbench/ex03/build/valerie/install.log --single-version-externally-managed install_data

@@ -45,13 +45,6 @@ class CleaningActionServer(Node):
         angular_speed_gain = 2.0
         strip_step = 0.03
 
-        def normalize_angle(angle):
-            while angle > math.pi:
-                angle -= 2 * math.pi
-            while angle < -math.pi:
-                angle += 2 * math.pi
-            return angle
-
         def turn_to_angle(target_theta):
             while rclpy.ok():
                 angle_diff = normalize_angle(target_theta - self.pose.theta)
