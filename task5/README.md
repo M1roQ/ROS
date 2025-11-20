@@ -148,3 +148,21 @@ ros2 launch robot_bringup diff_drive.launch.py
 source install/setup.bash
 ros2 launch circle_movement circle_movement.launch.py
 ```
+
+### ex05
+
+colcon build --packages-select circle_movement
+
+Запуск:  
+В отдельном терминале запустить лаунч 3 задачи
+```
+cd ex03/ros2_ws
+source install/setup.bash
+ros2 launch robot_bringup diff_drive.launch.py
+```
+
+В терминале для 5 задачи
+```
+source install/setup.bash
+ros2 launch my_movement my_movement.launch.py
+```
