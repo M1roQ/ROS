@@ -16,7 +16,8 @@ class ObstacleStopNode(Node):
         self.get_logger().info('Obstacle stop node started')
 
     def scan_callback(self, scan: LaserScan):
-        front_ranges = scan.ranges[len(scan.ranges)//3: 2*len(scan.ranges)//3]  # центральная зона лидара
+        # Центральная зона лидара
+        front_ranges = scan.ranges[len(scan.ranges)//3: 2*len(scan.ranges)//3]  
         front_dist = min(front_ranges) if front_ranges else float('inf')
 
         tolerance = 0.05  # дельта для зоны "устойчивости"

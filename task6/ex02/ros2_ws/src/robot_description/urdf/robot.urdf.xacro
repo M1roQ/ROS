@@ -375,7 +375,7 @@
     <parent link="chassis" />
     <child link="camera_link" />
     <origin xyz="${chassis_length} 0 ${chassis_height/2 + depth_cam_radius*2.01}"
-      rpy="1.57079632679 0 0" />
+      rpy="0 0 0" />
   </joint>
 
   <gazebo reference="camera_link">
@@ -404,6 +404,7 @@
           </intrinsics>
         </lens>
       </camera>
+      <point_cloud_topic>/robot/points</point_cloud_topic>
     </sensor>
   </gazebo>
 
