@@ -1,0 +1,14 @@
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: ../Dockerfile
+    container_name: "ros-jazzy-t6"
+    network_mode: "host"
+    environment:
+      - DISPLAY=:1
+    volumes:
+      - .:/home/bval4/workbench
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    ipc: host
+
