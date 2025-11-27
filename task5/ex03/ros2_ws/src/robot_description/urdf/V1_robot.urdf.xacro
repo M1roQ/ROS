@@ -9,7 +9,7 @@
 
     <xacro:property name="chassis_length" value="0.335" />
     <xacro:property name="chassis_width" value="0.265" />
-    <xacro:property name="chassis_height" value="0.1" />
+    <xacro:property name="chassis_height" value="0.138" />
     <xacro:property name="wheel_radius" value="0.033"/>
     <xacro:property name="wheel_thickness" value="0.026"/>
     <xacro:property name="wheel_mass" value="0.05"/>
@@ -39,10 +39,6 @@
 
     <material name="white">
         <color rgba="0.71 0.75 1 1" />
-    </material>
-
-    <material name="rose">
-        <color rgba="0.812 0.604 0.659 1" />
     </material>
 
     <material name="orange">
@@ -211,7 +207,7 @@
     <!-- Первая антенна (правая) -->
     <link name="antenna_1">
     <inertial>
-        <origin xyz="0.04 0 ${antenna_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${antenna_length/2}" rpy="0 0 0"/>
         <mass value="${antenna_mass}" />
         <inertia ixx="${(1/12) * antenna_mass * (3*antenna_radius*antenna_radius + antenna_length*antenna_length)}" ixy="0.0" ixz="0.0"
                     iyy="${(1/12) * antenna_mass * (3*antenna_radius*antenna_radius + antenna_length*antenna_length)}" iyz="0.0"
@@ -219,7 +215,7 @@
     </inertial>
 
     <visual>
-        <origin xyz="0.04 0 ${antenna_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${antenna_length/2}" rpy="0 0 0"/>
         <geometry>
             <cylinder radius="${antenna_radius}" length="${antenna_length}"/>
         </geometry>
@@ -227,7 +223,7 @@
     </visual>
 
     <collision>
-        <origin xyz="0.04 0 ${antenna_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${antenna_length/2}" rpy="0 0 0"/>
         <geometry>
             <cylinder radius="${antenna_radius}" length="${antenna_length}"/>
         </geometry>
@@ -243,7 +239,7 @@
     <!-- Вторая антенна (левая) -->
     <link name="antenna_2">
     <inertial>
-        <origin xyz="0.04 0 ${antenna_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${antenna_length/2}" rpy="0 0 0"/>
         <mass value="${antenna_mass}" />
         <inertia ixx="${(1/12) * antenna_mass * (3*antenna_radius*antenna_radius + antenna_length*antenna_length)}" ixy="0.0" ixz="0.0"
                     iyy="${(1/12) * antenna_mass * (3*antenna_radius*antenna_radius + antenna_length*antenna_length)}" iyz="0.0"
@@ -251,7 +247,7 @@
     </inertial>
 
     <visual>
-        <origin xyz="0.04 0 ${antenna_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${antenna_length/2}" rpy="0 0 0"/>
         <geometry>
             <cylinder radius="${antenna_radius}" length="${antenna_length}"/>
         </geometry>
@@ -259,7 +255,7 @@
     </visual>
 
     <collision>
-        <origin xyz="0.04 0 ${antenna_length/2}" rpy="0 0 0"/>
+        <origin xyz="0 0 ${antenna_length/2}" rpy="0 0 0"/>
         <geometry>
             <cylinder radius="${antenna_radius}" length="${antenna_length}"/>
         </geometry>
@@ -284,7 +280,7 @@
     <!-- Глаза на антеннах -->
     <link name="eye_left">
         <visual>
-        <origin xyz="0.04 0 0.15" rpy="0 0 0"/>
+        <origin xyz="0 0 0.15" rpy="0 0 0"/>
         <geometry>
             <sphere radius="0.03"/>
         </geometry>
@@ -300,7 +296,7 @@
 
     <link name="eye_right">
         <visual>
-        <origin xyz="0.04 0 0.15" rpy="0 0 0"/>
+        <origin xyz="0 0 0.15" rpy="0 0 0"/>
         <geometry>
             <sphere radius="0.03"/>
         </geometry>
@@ -313,38 +309,6 @@
         <child link="eye_right"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
-
-    <!-- Сфера сверху -->
-    <link name="body_sphere">
-      <visual>
-        <origin xyz="0.12 0 ${chassis_height + 0.1}" rpy="0 0 0"/>
-        <geometry>
-          <sphere radius="0.15"/>
-        </geometry>
-        <material name="rose"/>
-      </visual>
-      <collision>
-        <origin xyz="0.1 0 ${chassis_height+ 0.1}" rpy="0 0 0"/>
-        <geometry>
-          <sphere radius="0.15"/>
-        </geometry>
-      </collision>
-      <inertial>
-        <mass value="0.5"/>
-        <origin xyz="0.1 0 ${chassis_height + 0.1}" rpy="0 0 0"/>
-        <inertia ixx="0.02" ixy="0" ixz="0" iyy="0.02" iyz="0" izz="0.02"/>
-      </inertial>
-    </link>
-
-    <joint name="body_sphere_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="body_sphere"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </joint>
-
-    <gazebo reference="body_sphere">
-    <material>Gazebo/Rose</material>
-    </gazebo>
 
 </robot>
 
